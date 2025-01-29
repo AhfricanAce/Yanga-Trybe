@@ -8,15 +8,16 @@ import ProductItem from './ProductItem';
 
 
 
+{/** Defines a functional React component */}
 const BestSeller = () => {
 
-    /** Get all products data using the useContext API */
+    {/** Get all products data using the useContext API */}
     const {products} = useContext(ShopContext);
-
+    {/** Declares a state variable @bestSeller initialized as an empty array */}
     const [bestSeller,setBestSeller] = useState([]);
-    /** Find bestseller products from the products data and display them as bestseller
+    {/** Find bestseller products from the products data and display them as bestseller
      * Display the bestseller products
-     */
+     */}
     useEffect(()=>{
         const bestProduct = products.filter((item)=>(item.bestseller));
         setBestSeller(bestProduct.slice(0,5))
@@ -39,5 +40,5 @@ const BestSeller = () => {
     </div>
   )
 }
-
+{/** Exports the BestSeller component, making it available for import elsewhere */}
 export default BestSeller
