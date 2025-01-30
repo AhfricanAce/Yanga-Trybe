@@ -1,7 +1,11 @@
 import React from 'react'
 
+{/** Defines a react component NewsletterBox */}
 const NewsletterBox = () => {
 
+    {/** Call the onSubmitHandler function when user submits form
+        use preventDefault to prevent reloading event
+        added a subscribe button */}
     const onSubmitHandler = (event) => {
         event.preventDefault();
     }
@@ -21,4 +25,5 @@ const NewsletterBox = () => {
   )
 }
 
+{/** make available for use in other parts of the App */}
 export default NewsletterBox

@@ -4,6 +4,14 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 
+{/**Defines a React component Navbar.
+  @param setShowSearch to show the search bar
+  @param getCartCount return cart items
+  @param navigate for navigating
+  @param token stores auth login tokens
+  @param setToken to update auth token
+  @param setCartItems resets cart items */}
+
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
 
@@ -15,6 +23,10 @@ const Navbar = () => {
     setToken,
     setCartItems,
   } = useContext(ShopContext);
+  {/** Remove and delete token from localStorage
+    update set toke
+    redirect to login page
+    finally, reset cart items */}
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
@@ -50,6 +62,7 @@ const Navbar = () => {
         </NavLink>
       </ul>
 
+      {/** Activate search icon to visible when clicked */}
       <div className="flex items-center gap-6">
         <img
           onClick={() => setShowSearch(true)}
@@ -57,7 +70,9 @@ const Navbar = () => {
           className="w-5 cursor-pointer"
           alt=""
         />
-
+        {/**Using ternary operator  to set profile_icon when clicked
+         * if not logged in, redirect to login page
+         */}
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate("/login"))}
@@ -65,7 +80,11 @@ const Navbar = () => {
             src={assets.profile_icon}
             alt=""
           />
-          {/* Dropdown menu */}
+          {/** Dropdown menu containing:
+           * My Profile
+           * Orders
+           * Logout
+           */}
           {token && (
             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
@@ -98,7 +117,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Sidebar menu for small screens */}
+      {/** Set up sidebar menu for smaller screen size */}
       <div
         className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
           visible ? "w-full" : "w-0"
