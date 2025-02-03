@@ -1,6 +1,8 @@
 # Yanga-Trybe
 A Webstack - Portfolio Project Of ALx
 Yanga Trybe is an e-commerce website built by Agbai Victor Chimezirim
+
+YangaTrybe aims at simplifying online shopping complexities.
 FEATURES:
 CART
 COLLECTIONS
@@ -11,5 +13,12 @@ Online Payment gateways:
 Other payment gateways include:
     Cash on delivery
 
-    ADMIN DASHBOARD:
-      Yet to be completed.
+## How To Run Program:
+Frontend: npm run dev
+  Local:   http://localhost:5173/
+
+Backend: npm run server
+  PORT : 4000
+
+  Admin Dashboard: npm run dev
+    Local:   http://localhost:5174/
